@@ -1,0 +1,87 @@
+/* Hamburg Jeans – Stil angelehnt an minimalistische Denim-Mode (schwarz/weiß, groß, ruhig) */
+:root{
+  --black:#000; --white:#fff; --grey:#f2f2f2; --mid:#6b6b6b; --denim:#1f3a5f;
+  --font:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --pad:clamp(1.25rem,5vw,4rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--black);background:var(--white);line-height:1.6;font-size:1rem}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--denim);outline-offset:3px}
+
+/* Header */
+header{position:sticky;top:0;z-index:10;background:var(--white);border-bottom:1px solid #ddd;
+  display:flex;justify-content:space-between;align-items:center;padding:1rem var(--pad)}
+.logo{font-weight:800;font-size:1.3rem;letter-spacing:-.03em;text-decoration:none;text-transform:lowercase}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav a{text-decoration:none;font-weight:500;padding-bottom:2px;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current="page"]{border-bottom-color:var(--black)}
+.menu-btn{display:none;background:none;border:0;font:inherit;font-weight:700;cursor:pointer}
+
+/* Hero */
+.hero{min-height:85vh;display:flex;align-items:flex-end;padding:var(--pad);color:var(--white);
+  background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,.05) 60%),url("images/hero.jpg") center/cover,
+  linear-gradient(135deg,#0d1b2e,#3a5a85)}
+.hero h1{font-size:clamp(3rem,10vw,8rem);line-height:.92;letter-spacing:-.05em;font-weight:800;max-width:11ch}
+.hero p{max-width:34rem;margin:1.5rem 0;font-size:1.15rem}
+.page-hero{min-height:45vh}
+
+/* Buttons */
+.btn{display:inline-block;padding:1rem 2rem;background:var(--white);color:var(--black);
+  font-weight:700;text-decoration:none;border:2px solid var(--white);transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--white)}
+.btn.dark{background:var(--black);color:var(--white);border-color:var(--black)}
+.btn.dark:hover{background:transparent;color:var(--black)}
+.btn-row{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* Sections */
+section{padding:clamp(3rem,8vw,7rem) var(--pad)}
+section.grey{background:var(--grey)}
+section.black{background:var(--black);color:var(--white)}
+h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.04em;line-height:1;margin-bottom:1.5rem;font-weight:800}
+h3{font-size:1.4rem;letter-spacing:-.02em;margin-bottom:.5rem}
+.lead{max-width:40rem;font-size:1.15rem;color:var(--mid)}
+.black .lead{color:#ccc}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--pad);align-items:center}
+.pic{min-height:420px;background-size:cover;background-position:center}
+.pic.a{background:url("images/beratung.jpg") center/cover,linear-gradient(135deg,#8aa0bd,#1f3a5f)}
+.pic.b{background:url("images/store.jpg") center/cover,linear-gradient(135deg,#444,#111)}
+.pic.c{background:url("images/handwerk.jpg") center/cover,linear-gradient(135deg,#c9d3e0,#5b7396)}
+
+/* Karten */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.card{background:var(--white);padding:2rem;border-top:4px solid var(--black)}
+.black .card{background:#111;border-top-color:var(--white)}
+.card p{color:var(--mid)}
+.black .card p{color:#bbb}
+
+/* Öffnungszeiten */
+table{width:100%;max-width:32rem;border-collapse:collapse;margin-top:1rem}
+td{padding:.7rem 0;border-bottom:1px solid #ddd}
+td:last-child{text-align:right;font-weight:700}
+.black td{border-color:#333}
+
+/* Formular */
+form{display:grid;gap:1rem;max-width:32rem;margin-top:1.5rem}
+label{font-weight:700}
+input,select,textarea{width:100%;padding:.9rem;border:1px solid #999;font:inherit;background:var(--white)}
+
+/* Footer */
+footer{background:var(--black);color:var(--white);padding:3rem var(--pad);
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem}
+footer a{text-decoration:none;display:block}
+footer a:hover{text-decoration:underline}
+
+/* Responsive */
+@media (max-width:800px){
+  .menu-btn{display:block}
+  nav{position:absolute;top:100%;left:0;right:0;background:var(--white);border-bottom:1px solid #ddd;display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:1rem var(--pad)}
+  nav li{padding:.6rem 0}
+  .split,.grid3{grid-template-columns:1fr}
+  .pic{min-height:260px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
